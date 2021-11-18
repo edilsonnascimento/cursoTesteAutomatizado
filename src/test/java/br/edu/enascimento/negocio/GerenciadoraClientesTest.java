@@ -42,4 +42,6 @@ public class GerenciadoraClientesTest {
         assertNull(servico.pesquisaCliente(2));
     }
 
+
+
 }
