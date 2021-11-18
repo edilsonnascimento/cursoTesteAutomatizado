@@ -37,7 +37,7 @@ public class GerenciadoraContas {
 	}
 	
 	/**
-	 * Adiciona uma nova conta � lista de contas do banco.
+	 * Adiciona uma nova conta á lista de contas do banco.
 	 * @param novaConta nova conta a ser adicionada
 	 */
 	public void adicionaConta (ContaCorrente novaConta) {
@@ -65,9 +65,9 @@ public class GerenciadoraContas {
 	}
 
 	/**
-	 * Informa se uma determinada conta est� ativa ou n�o.
-	 * @param idConta ID da conta cujo status ser� verificado
-	 * @return true se a conta est� ativa. False, caso contr�rio. 
+	 * Informa se uma determinada conta está ativa ou não.
+	 * @param idConta ID da conta cujo status será verificado
+	 * @return true se a conta está ativa. False, caso contr�rio.
 	 */
 	public boolean contaAtiva (int idConta) {
 		
