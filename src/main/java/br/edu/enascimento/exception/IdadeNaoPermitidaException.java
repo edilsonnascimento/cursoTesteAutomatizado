@@ -1,7 +1,7 @@
-package br.edu.enascimento.negocio;
+package br.edu.enascimento.exception;
 
 /**
- * Exce��o a ser lan�ada quando a idade de um poss�vel novo cliente n�o for aceita.
+ * Exceção a ser lançada quando a idade de um possível novo cliente não for aceita.
  * 
  * @author Gustavo Farias
  */
@@ -12,5 +12,6 @@ public class IdadeNaoPermitidaException extends Exception {
 	public IdadeNaoPermitidaException(String msg) {
 		super(msg);
 	}
+
 
 }

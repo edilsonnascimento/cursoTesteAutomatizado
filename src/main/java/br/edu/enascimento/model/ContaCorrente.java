@@ -1,8 +1,8 @@
-package br.edu.enascimento.negocio;
+package br.edu.enascimento.model;
 
 /**
  * Classe {@link ContaCorrente} que representa uma conta corrente real
- * e que poder� ser associada a um cliente.
+ * e que poder à ser associada a um cliente.
  * @author Gustavo Farias
  */
 public class ContaCorrente {

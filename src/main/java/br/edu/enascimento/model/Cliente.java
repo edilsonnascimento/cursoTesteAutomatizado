@@ -1,4 +1,4 @@
-package br.edu.enascimento.negocio;
+package br.edu.enascimento.model;
 
 /**
  * Classe {@link Cliente} que representa um cliente real do banco.
