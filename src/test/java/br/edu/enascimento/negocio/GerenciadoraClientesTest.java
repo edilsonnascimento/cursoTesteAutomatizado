@@ -1,6 +1,7 @@
 package br.edu.enascimento.negocio;
 
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,15 +11,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class GerenciadoraClientesTest {
 
-    @Test
-    public void testPesquisaClientes(){
-        //cenario
-        Cliente cliente01 = new Cliente(1, "Budogan", 31, "budogan@gmail.com", 1, true);
-        Cliente cliente02 = new Cliente(2, "Silvio", 38, "Silvio@gmail.com", 1, true);
-        List<Cliente> clientesBanco = new ArrayList<>();
+    private Cliente cliente01;
+    private Cliente cliente02;
+    private List<Cliente> clientesBanco;
+    private GerenciadoraClientes servico;
+
+    @BeforeEach
+    public void setup(){
+        cliente01 = new Cliente(1, "Budogan", 31, "budogan@gmail.com", 1, true);
+        cliente02 = new Cliente(2, "Silvio", 38, "Silvio@gmail.com", 1, true);
+        clientesBanco = new ArrayList<>();
         clientesBanco.add(cliente01);
         clientesBanco.add(cliente02);
-        GerenciadoraClientes servico = new GerenciadoraClientes(clientesBanco);
+        servico = new GerenciadoraClientes(clientesBanco);
+    }
+    @AfterEach
+    public void tearDown(){
+        servico.limpa();
+    }
+    @Test
+    public void devePesquisarClientePeloIDCliente(){
         //acao
         Cliente cliente = servico.pesquisaCliente(1);
         //verificaco
@@ -26,22 +38,12 @@ public class GerenciadoraClientesTest {
         assertEquals(cliente01.getEmail(), cliente.getEmail());
     }
     @Test
-    public void testRemoveCliente(){
-        //cenario
-        Cliente cliente01 = new Cliente(1, "Budogan", 31, "budogan@gmail.com", 1, true);
-        Cliente cliente02 = new Cliente(2, "Silvio", 38, "Silvio@gmail.com", 1, true);
-        List<Cliente> clientesBanco = new ArrayList<>();
-        clientesBanco.add(cliente01);
-        clientesBanco.add(cliente02);
-        GerenciadoraClientes servico = new GerenciadoraClientes(clientesBanco);
+    public void deveRemoverClientePeloIdCliente(){
         //acao
-        boolean clienteRemovido = servico.removeCliente(2);
+        boolean clienteRemovido = servico.removeCliente(cliente02.getId());
         //validacao
         assertTrue(clienteRemovido);
-        assertEquals(1, clientesBanco.size());
-        assertNull(servico.pesquisaCliente(2));
+        assertEquals(cliente01.getId(), clientesBanco.size());
+        assertNull(servico.pesquisaCliente(cliente02.getId()));
     }
-
-
-
 }

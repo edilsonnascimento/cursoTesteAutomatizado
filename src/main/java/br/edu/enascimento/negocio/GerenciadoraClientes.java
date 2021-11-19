@@ -3,7 +3,7 @@ package br.edu.enascimento.negocio;
 import java.util.List;
 
 /**
- * Classe de neg�cio para realizar opera��es sobre os clientes do banco.
+ * Classe de negócio para realizar operações sobre os clientes do banco.
  * @author Gustavo Farias
  */
 public class GerenciadoraClientes {

@@ -101,11 +101,11 @@ public class GerenciadoraContas {
 		ContaCorrente contaDestino = pesquisaConta(idContaDestino);
 		ContaCorrente contaOrigem = pesquisaConta(idContaOrigem);
 
-//		if(contaOrigem.getSaldo() >= valor){
+		if(contaOrigem.getSaldo() >= valor){
 			contaDestino.setSaldo(contaDestino.getSaldo() + valor);
 			contaOrigem.setSaldo(contaOrigem.getSaldo() - valor);
 			sucesso = true;
-//		}
+		}
 	
 		return sucesso;
 	}
