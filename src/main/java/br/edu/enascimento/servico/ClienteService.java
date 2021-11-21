@@ -13,25 +13,22 @@ public class ClienteService {
 	public ClienteService() {
 		this.repository = new ClienteRepository();
 	}
-	public List<Cliente> buscaTodosClientes() {
+	public List<Cliente> buscarTodosClientes() {
 		return repository.buscarTodos();
 	}
-	public Cliente pesquisaCliente (int idCliente) {
+	public Cliente pesquisarCliente (int idCliente) {
 		return repository.buscarPor(idCliente);
 	}
-	public void adicionaCliente (Cliente novoCliente) {
+	public void adicionarCliente (Cliente novoCliente) {
 		repository.adicionar(novoCliente);
 	}
-	public boolean removeCliente (int idCliente) {
+	public boolean removerCliente (int idCliente) {
 		return repository.removerPor(idCliente);
 	}
 	public boolean clienteAtivo (int idCliente) {
 		return repository.estaAtivoPor(idCliente);
 	}
-	public void limpaBase() {
-		repository.limpar();
-	}
-	public boolean validaIdade(int idade) throws IdadeNaoPermitidaException {
+	public boolean validarIdade(int idade) throws IdadeNaoPermitidaException {
 		if(idade < 18 || idade > 65)
 			throw new IdadeNaoPermitidaException(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA);
 		return true;

@@ -3,14 +3,14 @@ package br.edu.enascimento.app;
 import br.edu.enascimento.model.Cliente;
 import br.edu.enascimento.model.ContaCorrente;
 import br.edu.enascimento.servico.ClienteService;
-import br.edu.enascimento.servico.ContaService;
+import br.edu.enascimento.servico.ContaCorrenteService;
 
 import java.util.Scanner;
 
 public class Main {
 
 	private static ClienteService clienteService;
-	private static ContaService contaService;
+	private static ContaCorrenteService contaService;
 
 	public static void main(String[] args) {
 		
@@ -30,7 +30,7 @@ public class Main {
 			case 1:
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente = sc.nextInt();
-				Cliente cliente = clienteService.pesquisaCliente(idCliente);
+				Cliente cliente = clienteService.pesquisarCliente(idCliente);
 				
 				if(cliente != null)
 					System.out.println(cliente.toString());
@@ -59,7 +59,7 @@ public class Main {
 				
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente2 = sc.nextInt();
-				Cliente cliente2 = clienteService.pesquisaCliente(idCliente2);
+				Cliente cliente2 = clienteService.pesquisarCliente(idCliente2);
 				
 				if(cliente2 != null){
 					cliente2.setAtivo(true);
@@ -77,7 +77,7 @@ public class Main {
 				
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente3 = sc.nextInt();
-				Cliente cliente3 = clienteService.pesquisaCliente(idCliente3);
+				Cliente cliente3 = clienteService.pesquisarCliente(idCliente3);
 				
 				if(cliente3 != null){
 					cliente3.setAtivo(false);
@@ -130,7 +130,7 @@ public class Main {
 	 * apenas para realizacao de testes manuais atravs do metodo main acima.
 	 */
 	private static void inicializaSistemaBancario() {
-		contaService = new ContaService();
+		contaService = new ContaCorrenteService();
 		ContaCorrente conta01 = new ContaCorrente(1, 0, true);
 		ContaCorrente conta02 = new ContaCorrente(2, 0, true);
 		contaService.adicionar(conta01);
@@ -139,8 +139,8 @@ public class Main {
 		clienteService = new ClienteService();
 		Cliente cliente01 = new Cliente(1, "Gustavo Farias", 31, "gugafarias@gmail.com", conta01.getId(), true);
 		Cliente cliente02 = new Cliente(2, "Felipe Augusto", 34, "felipeaugusto@gmail.com", conta02.getId(), true);
-		clienteService.adicionaCliente(cliente01);
-		clienteService.adicionaCliente(cliente02);
+		clienteService.adicionarCliente(cliente01);
+		clienteService.adicionarCliente(cliente02);
 	}
 	
 }

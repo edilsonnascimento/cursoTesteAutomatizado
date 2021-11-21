@@ -53,8 +53,4 @@ public class ClienteRepository {
         }
         return clienteAtivo;
     }
-
-    public void limpar() {
-        this.clientesDoBanco.clear();
-    }
 }

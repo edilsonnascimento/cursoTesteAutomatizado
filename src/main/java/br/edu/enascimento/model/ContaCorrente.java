@@ -1,17 +1,11 @@
 package br.edu.enascimento.model;
 
-/**
- * Classe {@link ContaCorrente} que representa uma conta corrente real
- * e que poder à ser associada a um cliente.
- * @author Gustavo Farias
- */
 public class ContaCorrente {
 	
 	private int id;
-	
 	private double saldo;
-	
 	private boolean ativa;
+	private double limite;
 
 	public ContaCorrente(int id, double saldo, boolean ativa) {
 		this.id = id;
@@ -19,58 +13,41 @@ public class ContaCorrente {
 		this.ativa = ativa;
 	}
 
-	/**
-	 * M�todo que retorna o ID da conta corrente. 
-	 * @return ID da conta corrente
-	 */
 	public int getId() {
 		return id;
 	}
 
-	/**
-	 * M�todo que atualiza o ID da conta corrente. 
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	/**
-	 * M�todo que retorna o saldo da conta corrente. 
-	 * @return saldo da conta corrente
-	 */
 	public double getSaldo() {
 		return saldo;
 	}
 
-	/**
-	 * M�todo que atualiza o saldo da conta corrente. 
-	 */
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 
-	/**
-	 * M�todo que retorna o status da conta corrente, podendo ser Ativa ou Inativa. 
-	 * @return status da conta corrente
-	 */
 	public boolean isAtiva() {
 		return ativa;
 	}
 
-	/**
-	 * M�todo que atualiza o status da conta corrente. 
-	 */
 	public void setAtiva(boolean ativa) {
 		this.ativa = ativa;
 	}
-	
-	/**
-	 * M�todo que retorna a representa��o textual de uma conta corrente. 
-	 * @return representa��o textual da conta corrente
-	 */
+
+	public double getLimite() {
+		return saldo < 0 ? limite + saldo : limite;
+	}
+
+	public ContaCorrente setLimite(double limite) {
+		this.limite = limite;
+		return this;
+	}
+
 	@Override
 	public String toString() {
-		
 		String str = "========================="
 					+ "Id: " + this.id + "\n"
 					+ "Saldo: " + this.saldo + "\n"
@@ -78,5 +55,4 @@ public class ContaCorrente {
 					+ "=========================";
 		return str;
 	}
-	
 }
